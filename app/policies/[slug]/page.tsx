@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound, permanentRedirect } from 'next/navigation'
@@ -8,10 +10,6 @@ import { practice } from '@/lib/practice'
 
 interface PolicyPageProps {
   params: Promise<{ slug: string }>
-}
-
-export function generateStaticParams() {
-  return policies.map(({ slug }) => ({ slug }))
 }
 
 export async function generateMetadata({ params }: PolicyPageProps): Promise<Metadata> {

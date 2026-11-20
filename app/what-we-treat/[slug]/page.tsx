@@ -1,16 +1,12 @@
+export const runtime = 'edge';
+
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { ConditionDetail } from '@/components/conditions/condition-detail'
-import { conditions, getCondition } from '@/lib/conditions'
+import { getCondition } from '@/lib/conditions'
 
 interface ConditionPageProps {
   params: Promise<{ slug: string }>
-}
-
-export const dynamicParams = false
-
-export function generateStaticParams() {
-  return conditions.map(({ slug }) => ({ slug }))
 }
 
 export async function generateMetadata({ params }: ConditionPageProps): Promise<Metadata> {
