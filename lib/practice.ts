@@ -1,7 +1,7 @@
 export const practice = {
   name: 'Marenova Psychiatry & Wellness LLC',
   eligibility: 'Currently accepting telehealth patients located in Florida.',
-  bookingUrl: null as string | null,
+  bookingUrl: 'https://marenovawellness.clientsecure.me',
   portalUrl: null as string | null,
 }
 

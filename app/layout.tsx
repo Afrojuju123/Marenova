@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { Montserrat, Playfair_Display } from 'next/font/google'
+import { AppointmentWidget } from '@/components/appointment-widget'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 import { ScrollReveals } from '@/components/scroll-reveals'
@@ -60,12 +61,14 @@ export default function RootLayout({
         >
           Skip to content
         </a>
+        <AppointmentWidget>
         <SiteHeader />
         <main id="main-content" tabIndex={-1} className="outline-none">
           {children}
           <ScrollReveals />
         </main>
         <SiteFooter />
+        </AppointmentWidget>
       </body>
     </html>
   )

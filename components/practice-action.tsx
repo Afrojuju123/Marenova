@@ -1,7 +1,7 @@
 'use client'
 
 import type { ComponentProps } from 'react'
-import Link from 'next/link'
+import { AppointmentLink } from '@/components/appointment-widget'
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import { buttonVariants, type Button } from '@/components/ui/button'
 import { practice } from '@/lib/practice'
@@ -40,6 +40,10 @@ export function PracticeAction({
     </>
   )
 
+  if (isBooking) {
+    return <AppointmentLink onNavigate={onNavigate} className={cn(buttonVariants({ variant: actionVariant, size }), className)}>{content}</AppointmentLink>
+  }
+
   if (destination) {
     return (
       <a
@@ -55,9 +59,5 @@ export function PracticeAction({
     )
   }
 
-  return (
-    <Link href="/contact#booking" onClick={onNavigate} className={cn(buttonVariants({ variant: actionVariant, size }), className)}>
-      {content}
-    </Link>
-  )
+  return null
 }

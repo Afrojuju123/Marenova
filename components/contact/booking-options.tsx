@@ -1,8 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowRight, ArrowUpRight, CalendarDays, LockKeyhole } from 'lucide-react'
+import { ArrowRight, CalendarDays, LockKeyhole } from 'lucide-react'
 import { PracticeAction } from '@/components/practice-action'
-import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import { practice, provider } from '@/lib/practice'
@@ -22,9 +21,7 @@ export function BookingOptions() {
           </div>
           <p className="body-copy">Care is for adults 18+, including older adults, who are physically located in Florida at the time of each telehealth visit.</p>
           <p className="body-copy">Use the practice contact details supplied in your referral or welcome materials to discuss availability, clinical fit, insurance, and fees before arranging an appointment.</p>
-          {practice.bookingUrl && (
-            <a href={practice.bookingUrl} target="_blank" rel="noopener noreferrer" className={buttonVariants({ size: 'lg' })}>Open online scheduler <ArrowUpRight data-icon="inline-end" aria-hidden="true" /><span className="sr-only"> (opens in a new tab)</span></a>
-          )}
+          <PracticeAction size="lg" label="Request an appointment" />
           <p className="text-base text-muted-foreground">Appointments are confirmed directly by the practice after eligibility and intake requirements are reviewed.</p>
         </CardContent>
         <CardFooter><Link href="/patient-info#new-patients" className="text-link">Your first five steps <ArrowRight className="size-4" aria-hidden="true" /></Link></CardFooter>
